@@ -1,0 +1,78 @@
+.login-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-section {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.menu-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 8px 10px 8px 35px; /* 왼쪽 패딩은 아이콘 공간 */
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 200px;
+}
+
+.search-box input:focus {
+  border-color: #999;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.search-icon {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  left: 30px;
+  color: #888;
+  pointer-events: none; /* 아이콘 클릭 방지 */
+}
+
+/* ✅ 반응형 미디어 쿼리 추가 */
+@media (max-width: 768px) {
+  .menu-aria {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .menu-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-box {
+    padding-top: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 80%;
+    max-width: 300px;
+  }
+}
