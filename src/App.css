@@ -1,6 +1,8 @@
 .login-button {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
 }
 
 .nav-section {
@@ -54,17 +56,6 @@
 
 /* ✅ 반응형 미디어 쿼리 추가 */
 @media (max-width: 768px) {
-  .menu-aria {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .menu-list {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .search-box {
     padding-top: 10px;
     justify-content: center;
