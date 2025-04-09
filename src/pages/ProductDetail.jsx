@@ -5,7 +5,7 @@ const ProductDetail = () => {
   let { id } = useParams();
   const [product, setProduct] = useState(null);
   const getProductDetail = async () => {
-    let url = `http://my-json-server.typicode.com/cheog0/react-route-practice/products/${id}`;
+    let url = `https://my-json-server.typicode.com/cheog0/react-route-practice/products/${id}`;
     let response = await fetch(url);
     let data = await response.json();
     setProduct(data);
