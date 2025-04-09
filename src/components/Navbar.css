@@ -80,7 +80,9 @@
     display: none;
   }
   .search-box {
-    margin-left: auto; /* ✅ 오른쪽 끝으로 밀기 */
+    margin-left: auto;
+    justify-content: center;
+    /* ✅ 오른쪽 끝으로 밀기 */
   }
 }
 
@@ -90,10 +92,12 @@
   }
 
   .search-box {
+    width: 300px;
     justify-content: center;
   }
 
   .menu-dropdown {
     display: block;
+    justify-content: center;
   }
 }

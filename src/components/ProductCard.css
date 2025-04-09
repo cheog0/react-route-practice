@@ -1,0 +1,10 @@
+.product-card {
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  text-align: center;
+}
