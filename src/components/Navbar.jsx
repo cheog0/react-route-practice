@@ -30,6 +30,9 @@ const Navbar = () => {
   const goToLogin = () => {
     navigate("/login");
   };
+  const goToHome = () => {
+    navigate("/");
+  };
   return (
     <div className="navbar-wrapper">
       <section className="top-section">
@@ -43,6 +46,7 @@ const Navbar = () => {
           className="logo"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/800px-H%26M-Logo.svg.png"
           alt="H&M Logo"
+          onClick={goToHome}
         />
       </section>
       <section className="menu-area">
