@@ -4,7 +4,10 @@
   align-self: flex-end;
   margin-right: 10px;
 }
-
+.top-section,
+.nav-section {
+  cursor: pointer;
+}
 .mobile-menu {
   position: fixed;
   top: 0;
