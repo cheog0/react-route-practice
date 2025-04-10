@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import "./Navbar.css"; // CSS 분리 (또는 스타일 아래에 붙여도 OK)
+import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ authenticate, setAuthenticate }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
 
   const menuList = [
     "여성",
@@ -26,21 +28,33 @@ const Navbar = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  const navigate = useNavigate();
-  const goToLogin = () => {
-    navigate("/login");
-  };
-  const goToHome = () => {
+
+  const goToLogin = () => navigate("/login");
+  const goToLogout = () => {
+    setAuthenticate(false);
     navigate("/");
   };
+  const goToHome = () => navigate("/");
+
+  const search = (event) => {
+    if (event.key === "Enter") {
+      let keyword = event.target.value;
+      navigate(`/?q=${keyword}`);
+    }
+  };
+
   return (
     <div className="navbar-wrapper">
       <section className="top-section">
-        <div className="login-button" onClick={goToLogin}>
+        <div
+          className="login-button"
+          onClick={authenticate ? goToLogout : goToLogin}
+        >
           <FontAwesomeIcon icon={faUser} />
-          <div>로그인</div>
+          <div>{authenticate ? "로그아웃" : "로그인"}</div>
         </div>
       </section>
+
       <section className="nav-section">
         <img
           className="logo"
@@ -49,19 +63,29 @@ const Navbar = () => {
           onClick={goToHome}
         />
       </section>
+
       <section className="menu-area">
         <div className="search-box">
           <FontAwesomeIcon icon={faSearch} className="search-icon" />
-          <input type="text" placeholder="검색" />
+          <input type="text" placeholder="검색" onKeyDown={(e) => search(e)} />
         </div>
+
         {isMobile ? (
-          <select className="menu-dropdown">
-            {menuList.map((menu, index) => (
-              <option key={index} value={menu}>
-                {menu}
-              </option>
-            ))}
-          </select>
+          <>
+            <div className="hamburger-icon" onClick={() => setShowMenu(true)}>
+              ☰
+            </div>
+            <div className={`mobile-menu ${showMenu ? "show" : ""}`}>
+              <div className="close-button" onClick={() => setShowMenu(false)}>
+                ✕
+              </div>
+              <ul>
+                {menuList.map((menu, index) => (
+                  <li key={index}>{menu}</li>
+                ))}
+              </ul>
+            </div>
+          </>
         ) : (
           <ul className="menu-list">
             {menuList.map((menu, index) => (

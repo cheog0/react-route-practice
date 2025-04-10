@@ -1,104 +1,45 @@
-.navbar-wrapper {
-  font-family: "Arial", sans-serif;
-  padding: 10px 20px;
-}
-
-.top-section {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 10px;
-}
-
-.login-button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.hamburger-icon {
+  font-size: 24px;
   cursor: pointer;
-  font-size: 14px;
-  color: #333;
-  transition: color 0.2s ease;
+  align-self: flex-end;
+  margin-right: 10px;
 }
 
-.login-button:hover {
-  color: #999;
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background-color: #c79d69;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  padding: 2rem 1rem;
 }
 
-.nav-section {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
+.mobile-menu.show {
+  left: 0;
+}
+
+.mobile-menu .close-button {
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  padding: 12px 0;
+  font-size: 1.1rem;
   cursor: pointer;
 }
 
 .logo {
   width: 100px;
-}
-
-.menu-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.menu-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  gap: 15px;
-}
-
-.menu-list li {
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 20px;
-  background-color: #f1f1f1;
-  transition: background-color 0.2s ease;
-}
-
-.menu-list li:hover {
-  background-color: #ddd;
-}
-
-/* 드롭다운 스타일 */
-.menu-dropdown {
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  width: 80%;
-  max-width: 300px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* 반응형 추가 */
-@media (min-width: 769px) {
-  .menu-dropdown {
-    display: none;
-  }
-  .search-box {
-    margin-left: auto;
-    justify-content: center;
-    /* ✅ 오른쪽 끝으로 밀기 */
-  }
-}
-
-@media (max-width: 768px) {
-  .menu-list {
-    display: none;
-  }
-
-  .search-box {
-    width: 300px;
-    justify-content: center;
-  }
-
-  .menu-dropdown {
-    display: block;
-    justify-content: center;
-  }
 }

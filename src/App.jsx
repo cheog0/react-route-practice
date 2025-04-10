@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 import Login from "./pages/Login";
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <div>
-        <Navbar />
+        <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
         <Routes>
           <Route path="/" element={<ProductAll />} />
           <Route
